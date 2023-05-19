@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "name": "madhu",
+      "email": "sonali@example.com",
+      "phone": "05678954324",
+      "id": 1
+    },
+    {
+      "name": "sonalii",
+      "email": "sonali@example.com",
+      "phone": "05678954324",
+      "id": 2
+    },
+    {
+      "name": "sonali bhartii",
+      "email": "cs18.sgsits@gmail.com",
+      "phone": "+91917879447719",
+      "id": 3
+    },
+    {
+      "name": "sonalli",
+      "email": "sonali@example.com",
+      "phone": "06768954328",
+      "id": 4
+    }
+  ]
+}
