@@ -7,17 +7,18 @@ import { deleteUser, retrieveUsers } from "../actions/users";
  function UserList(props) {
   const dispatch = useDispatch();
   const users = props.users
+ 
   useEffect(() => {
     props.retrieveUsers()
  }, [])
   const handleRemoveUser = (userId) => {
      dispatch(deleteUser(userId));
   };
-console.log(props,"users")
+
  
   return (
     <>
-      {users ? users?.map((user) => (
+      {users && users.map((user) => (
         <div className="new" key={user.id}>
           <p>Name: {user.name}</p>
           <p>Email: {user.email}</p>
@@ -35,12 +36,12 @@ console.log(props,"users")
             Delete
           </button>
         </div>
-      )) : ""}
+      ))}
     </>
   );
 }
+
 const mapStateToProps = function(state) {
-  console.log(state,"state")
   return {
     users: state.userReducer,
   }
