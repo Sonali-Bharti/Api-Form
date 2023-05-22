@@ -1,18 +1,17 @@
 import { useEffect } from "react";
-import { connect } from 'react-redux';
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteUser, retrieveUsers } from "../actions/users";
 
- function UserList(props) {
+ function UserList() {
   const dispatch = useDispatch();
-  const users = props.users
+  const users = useSelector((state)=> state.userReducer);
  
   useEffect(() => {
-    props.retrieveUsers()
- }, [])
+    dispatch(retrieveUsers());
+ }, [dispatch]);
  
-  const handleRemoveUser = (userId) => {
+ const handleRemoveUser = (userId) => {
      dispatch(deleteUser(userId));
   };
 
@@ -37,17 +36,10 @@ import { deleteUser, retrieveUsers } from "../actions/users";
             Delete
           </button>
         </div>
-      ))}
+      )) }
     </>
   );
 }
 
-const mapStateToProps = function(state) {
-  return {
-    users: state.userReducer,
-  }
-}
 
-export default connect(mapStateToProps,{
-  retrieveUsers
-})(UserList);
+export default UserList;
