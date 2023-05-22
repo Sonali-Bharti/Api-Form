@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useForm = function (def = "") {
+const useFormInput = function (def = "") {
   const [value, setValue] = useState(def);
 
   return {
@@ -12,17 +12,17 @@ const useForm = function (def = "") {
 };
 
 export default function UserForm({ onSubmit, user }) {
-  const name = useForm(user?.name);
-  const email = useForm(user?.email);
-  const phone = useForm(user?.phone);
+  const nameInput = useFormInput(user?.name);
+  const emailInput = useFormInput(user?.email);
+  const phoneInput = useFormInput(user?.phone);
 
   const handleSubmit = function (e) {
     e.preventDefault();
 
     onSubmit({
-      name: name.value,
-      email: email.value,
-      phone: phone.value
+      name: nameInput.value,
+      email: emailInput.value,
+      phone: phoneInput.value
     });
   };
 
@@ -30,17 +30,17 @@ export default function UserForm({ onSubmit, user }) {
     <form onSubmit={handleSubmit}>
       <label>
         Name:
-        <input type="text" {...name} />
+        <input type="text" {...nameInput} />
       </label>
 
       <label>
         Email:
-        <input type="email" {...email} />
+        <input type="email" {...emailInput} />
       </label>
 
       <label>
         Phone:
-        <input type="tel" {...phone} />
+        <input type="tel" {...phoneInput} />
       </label>
 
       <button type="submit">{user ? "Update" : "Submit"}</button>
