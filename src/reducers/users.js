@@ -1,10 +1,4 @@
-import {
-  CREATE_USER,
-  RETRIEVE_USERS,
-  UPDATE_USER,
-  DELETE_USER,
-  
-} from "../actions/types";
+import { CREATE_USER, RETRIEVE_USERS, UPDATE_USER, DELETE_USER } from "../actions/types";
 
 const initialState = [];
 
@@ -15,31 +9,21 @@ function userReducer(users = initialState, action) {
     case CREATE_USER:
       return [...users, payload];
 
-    case RETRIEVE_USERS:{
-    
+    case RETRIEVE_USERS:
+      console.log(payload, "payload");
       return payload;
-    }
 
     case UPDATE_USER:
-      return users.map((user) => {
-        if (user.id === payload.id) {
-          return {
-            ...user,
-            ...payload,
-          };
-        } else {
-          return users;
-        }
-      });
+      return users.map((user) =>
+        user.id === payload.id ? { ...user, ...payload } : user
+      );
 
     case DELETE_USER:
       return users.filter(({ id }) => id !== payload.id);
 
-    
-
     default:
       return users;
   }
-};
+}
 
 export default userReducer;
