@@ -20,9 +20,9 @@ class UserDataService {
   delete(id) {
     return http.delete(`/users/${id}`);
   }
-
-  
-
 }
 
-export default new UserDataService();
+const userService = new UserDataService();
+
+export default userService;
+
