@@ -11,6 +11,7 @@ import { deleteUser, retrieveUsers } from "../actions/users";
   useEffect(() => {
     props.retrieveUsers()
  }, [])
+ 
   const handleRemoveUser = (userId) => {
      dispatch(deleteUser(userId));
   };
