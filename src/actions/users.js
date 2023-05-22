@@ -5,7 +5,7 @@ import userDataService from "../service/userService";
   export const createUSER = (name, email, phone) => async (dispatch) => {
     try {
       const res = await userDataService.create({ name, email, phone});
-      console.log(res)
+     
   
       dispatch({
         type: CREATE_USER,
@@ -21,13 +21,13 @@ import userDataService from "../service/userService";
   export const retrieveUsers = () => async (dispatch) => {
     try {
       const res = await userDataService.getAll();
-      console.log(res.data)
+      
       dispatch({
         type: RETRIEVE_USERS,
         payload: res.data,
       });
     } catch (err) {
-      console.log(err);
+      
     }
   };
   
@@ -55,7 +55,7 @@ import userDataService from "../service/userService";
         payload: { id },
       });
     } catch (err) {
-      console.log(err);
+      
     }
   };
   
