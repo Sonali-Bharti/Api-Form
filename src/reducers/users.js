@@ -16,7 +16,7 @@ function userReducer(users = initialState, action) {
       return [...users, payload];
 
     case RETRIEVE_USERS:{
-     console.log(payload,"payload")
+    
       return payload;
     }
 
